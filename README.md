@@ -1,121 +1,117 @@
-# Neo Flux
+<div align="center">
+  <img src="resources/logo/logo-256.png" alt="Neo Flux Logo" width="200"/>
 
-**Neo Flux** is a high-performance, aesthetically pleasing music visualizer written in C. Designed for both casual listening and content creation, it transforms your audio into stunning, real-time visual experiences.
+# NEO FLUX
 
-## 🌟 Features
+**The Ultimate High-Performance Music Visualizer**
 
-Neo Flux comes packed with advanced features to visualize your music exactly how you want:
+[![Language](https://img.shields.io/badge/language-C99-00599C.svg?style=flat-square&logo=c&logoColor=white)](<https://en.wikipedia.org/wiki/C_(programming_language)>)
+[![Graphics](https://img.shields.io/badge/graphics-Raylib-e6000e.svg?style=flat-square&logo=raylib&logoColor=white)](https://www.raylib.com/)
+[![Build](https://img.shields.io/badge/build-nob-2ea44f.svg?style=flat-square)](https://github.com/tsoding/nob.h)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg?style=flat-square)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]()
 
-- **Diverse Visualizers**: Choose from **10+** distinct visualization modes, each offering a unique perspective on your audio:
-  - **Bars**: Classic frequency bars with smooth interpolation.
-  - **Circle**: A pulsating circular representation.
-  - **Wave**: Oscilloscope-style waveform visualization.
-  - **Spectrum**: Detailed frequency spectrum analysis.
-  - **Particles**: Reactive particle system that dances to the beat.
-  - **Radial**, **Mirror**, **Spiral**, **Grid**, **Pulse**, and more!
-- **High-Fidelity Audio Analysis**: Utilizes **Fast Fourier Transform (FFT)** for precise frequency breakdown, with custom smoothing and smearing algorithms for a fluid visual response.
-- **Real-time Microphone Input**: Switch seamlessly to microphone capture (`C` key) to visualize live audio, voice, or ambient sound.
-- **Video Rendering**: Built-in support for rendering your visualization sessions to high-quality video files using **FFmpeg**. Perfect for creating music videos.
-- **Hot Reloading**: (For Developers) Modify the visualization logic in `src/plug.c` and compile while the app is running to see changes instantly without restarting.
-- **Zero-Friction UI**: Minimalist, keyboard-driven interface with a clean HUD and tooltip system.
+  <p align="center">
+    <b><a href="#-features">Features</a></b> •
+    <b><a href="#-getting-started">Getting Started</a></b> •
+    <b><a href="#-controls">Controls</a></b> •
+    <b><a href="#-visualizers">Visualizers</a></b>
+  </p>
+</div>
 
-## 🎮 Controls
+---
 
-The application is designed to be controlled primarily via keyboard shortcuts for quick access during performance or relaxation.
+**Neo Flux** transforms your audio into a living, breathing visual experience. Built from scratch in **C** using **Raylib**, it offers a lightweight, bloat-free, and hyper-responsive visualization engine that reacts to every beat with mathematical precision.
 
-| Key       | Function      | Description                                                       |
-| :-------- | :------------ | :---------------------------------------------------------------- |
-| **SPACE** | Play / Pause  | Toggle music playback.                                            |
-| **F**     | Fullscreen    | Toggle fullscreen mode.                                           |
-| **R**     | Render        | Start or stop rendering the current session to a video file.      |
-| **C**     | Capture / Mic | Toggle microphone input (Capture mode).                           |
-| **M**     | Mute          | Toggle audio mute.                                                |
-| **H**     | Hot Reload    | Reload the visualization code (requires recompilation of `plug`). |
-| **ESC**   | Close         | Exit the application.                                             |
+## 🚀 Features
 
-## 🛠️ Building from Source
+- **⚡ Zero Latency**: Direct interaction with audio buffers for instant visual feedback.
+- **🎨 10+ Visualization Modes**: From classic Bars to trippy Spirals and Particles.
+- **🎤 Live Input**: visualize your voice or ambient noise in real-time.
+- **📼 Render to Video**: Export your sessions directly to MP4 (requires FFmpeg).
+- **🔌 Hot Reloading**: Tweak shaders and logic in real-time without restarting (Dev mode).
+- **🛠️ Zero Dependencies**: Builds with a single command. No Makefiles, no CMake hell.
 
-Neo Flux uses a zero-dependency build system based on `nob` (Nobuild). You don't need Make, CMake, or other complex build tools—just a C compiler.
+## 💾 Getting Started
 
 ### Prerequisites
 
-- **C Compiler**: MSVC (Windows), GCC, or Clang.
-- **FFmpeg** (Optional): Required in your system PATH if you want to use the video rendering feature.
+- **C Compiler**: GCC, Clang, or MSVC.
+- **FFmpeg** (Optional): For video rendering capabilities.
 
-### Build Steps
+### Installation
 
-1.  **Clone the repository:**
+1.  **Clone the Repository**
 
     ```bash
     git clone https://github.com/rahulkumar7189/Neo-Flux.git
     cd Neo-Flux
     ```
 
-2.  **Bootstrap the build system:**
+2.  **Build**
+    Neo Flux uses the `nob` (Nobuild) system.
 
-    - **Windows (MSVC):**
-      Open a "Native Tools Command Prompt for VS" and run:
-
+    - **Windows (MSVC)**:
       ```cmd
-      cl nob.c
+      cl nob.c && nob.exe
       ```
-
-    - **Linux / macOS:**
+    - **Linux / macOS**:
       ```bash
-      cc nob.c -o nob
+      cc nob.c -o nob && ./nob
       ```
 
-3.  **Build the application:**
-
-    - **Windows:**
-
-      ```cmd
-      nob.exe
-      ```
-
-    - **Linux / macOS:**
-      ```bash
-      ./nob
-      ```
-
-    This will compile `raylib`, the core application, and the plugin system, placing the result in the `build/` directory.
-
-4.  **Run:**
-    ```cmd
-    build\musializer.exe
+3.  **Run**
+    ```bash
+    ./build/musializer
     ```
-    (Or the equivalent executable on your platform).
 
-## 🧩 Technical Details
+## 🎮 Controls
 
-### Architecture
+Designed for keyboard-first control to keep you in the flow.
 
-The project is built on a "Core + Plugin" architecture:
+| Key              | Action           | Description                                 |
+| :--------------- | :--------------- | :------------------------------------------ |
+| <kbd>SPACE</kbd> | **Play / Pause** | Toggle the music playback.                  |
+| <kbd>F</kbd>     | **Fullscreen**   | Toggle fullscreen mode.                     |
+| <kbd>R</kbd>     | **Render**       | Start/Stop recording to `render.mp4`.       |
+| <kbd>C</kbd>     | **Capture**      | Switch to Microphone input.                 |
+| <kbd>M</kbd>     | **Mute**         | Toggle sound (visuals keep playing).        |
+| <kbd>H</kbd>     | **Hot Reload**   | Recompile logic (requires dev environment). |
+| <kbd>ESC</kbd>   | **Exit**         | Close the application.                      |
 
-- **`musializer.c`**: The host application. It handles window creation, input management, and loading the plugin.
-- **`plug.c`**: The "brain" of the operation. Contains all visualization logic, rendering code, and audio processing. This compiles to a shared library (`.dll` or `.so`) that can be reloaded at runtime.
+## 🌈 Visualizers
 
-### Audio Processing
+Neo Flux includes a diverse set of visualization algorithms. Explore them all!
 
-Neo Flux uses a custom FFT implementation to break down audio signals. The raw frequency data goes through several stages of processing:
+1.  **Bars**: Traditional frequency analyzer.
+2.  **Circle**: Pulsating circular waveform.
+3.  **Wave**: Oscilloscope view.
+4.  **Spectrum**: High-res frequency heatmaps.
+5.  **Particles**: Gravity-defying frequency particles.
+6.  **Radial**: Outward exploding radial bars.
+7.  **Mirror**: Symmetrical Rorschach-test style visuals.
+8.  **Spiral**: Hypnotic spiral patterns.
+9.  **Grid**: 2D Grid intensity map.
+10. **Pulse**: Concentric ripples.
 
-1.  **Hann Windowing**: To reduce spectral leakage.
-2.  **Logarithmic Scaling**: To match the human ear's non-linear perception of pitch.
-3.  **Smoothing**: Time-based interpolation to remove jitter.
-4.  **Smearing**: A trailing effect for visual continuity.
+## 🏗️ Architecture
 
-## 👨‍💻 Credits
+Built on the **Core + Plugin** hot-reloadable architecture.
+
+- **`musializer.c`**: Host application (Window, Input).
+- **`plug.c`**: The Logic (Audio Processing, Rendering).
+- **`nob.c`**: The Build System.
+
+## 👥 Credits
 
 **Created & Maintained by Rahul Kumar**
 
-This project is the result of dedicated work in graphics programming and signal processing.
-
-### Acknowledgments
-
-- Powered by [Raylib](https://www.raylib.com/) for graphics.
-- Based on principles from the open-source community.
-- Special thanks to the creators of Miniaudio and FFmpeg.
+- **Graphics**: [Raylib](https://www.raylib.com/)
+- **Audio**: [Miniaudio](https://miniaud.io/)
+- **Video**: [FFmpeg](https://ffmpeg.org/)
 
 ---
 
-_Generated for the Neo Flux project._
+<div align="center">
+  <sub>Generated for Neo Flux</sub>
+</div>
