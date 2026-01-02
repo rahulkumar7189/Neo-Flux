@@ -47,8 +47,8 @@ Neo Flux uses a zero-dependency build system based on `nob` (Nobuild). You don't
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/my_musializer.git
-    cd my_musializer
+    git clone https://github.com/rahulkumar7189/Neo-Flux.git
+    cd Neo-Flux
     ```
 
 2.  **Bootstrap the build system:**
@@ -106,7 +106,7 @@ Neo Flux uses a custom FFT implementation to break down audio signals. The raw f
 
 ## 👨‍💻 Credits
 
-**Created & Maintained by [Your Name]**
+**Created & Maintained by Rahul Kumar**
 
 This project is the result of dedicated work in graphics programming and signal processing.
 
