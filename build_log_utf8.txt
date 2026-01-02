@@ -1,0 +1,65 @@
+﻿./build/nob_stage2.exe : ./src/plug.c: In 
+function 'toolbar':
+At line:1 char:1
++ ./build/nob_stage2.exe > build_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (./sr 
+   c/plug.c: In function 'toolbar'::String) [],   
+  RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+./src/plug.c:1453:56: error: 'source' undeclared 
+(first use in this function)
+         
+DrawTexturePro(p->icon_textures[UI_ICON_LINK], 
+source, dest, origin, 0, 
+COLOR_HUD_BUTTON_HOVEROVER);
+                                                  
+      ^~~~~~
+./src/plug.c:1453:56: note: each undeclared 
+identifier is reported only once for each 
+function it appears in
+./src/plug.c:1453:64: error: 'dest' undeclared 
+(first use in this function)
+         
+DrawTexturePro(p->icon_textures[UI_ICON_LINK], 
+source, dest, origin, 0, 
+COLOR_HUD_BUTTON_HOVEROVER);
+                                                  
+              ^~~~
+./src/plug.c:1453:70: error: 'origin' undeclared 
+(first use in this function)
+         
+DrawTexturePro(p->icon_textures[UI_ICON_LINK], 
+source, dest, origin, 0, 
+COLOR_HUD_BUTTON_HOVEROVER);
+                                                  
+                    ^~~~~~
+./src/plug.c:1464:25: warning: unused variable 
+'out_name' [-Wunused-variable]
+             const char *out_name = 
+"downloaded_audio"; // simplified name
+                         ^~~~~~~~
+[INFO] --- STAGE 2 ---
+[INFO] Target: win64-mingw
+[INFO] hotreload: DISABLED
+[INFO] unbundle: DISABLED
+[INFO] microphone: DISABLED
+[INFO] ---
+[INFO] directory `./build/raylib` already exists
+[INFO] directory `./build/raylib/win64-mingw` 
+already exists
+[INFO] Generated ./build/bundle.h
+[INFO] CMD: windres ./src/musializer.rc -O coff 
+-o ./build/musializer.res
+[INFO] CMD: gcc -c ./thirdparty/tinyfiledialogs.c 
+-o ./build/tinyfiledialogs.o
+[INFO] CMD: gcc -mwindows -Wall -Wextra -ggdb 
+-DNOGDI -DNOUSER -I. 
+-I./thirdparty/raylib-5.5/src/ -o 
+./build/musializer ./src/plug.c 
+./src/ffmpeg_windows.c ./src/musializer.c 
+./build/tinyfiledialogs.o ./build/musializer.res 
+-L./build/raylib/win64-mingw -l:libraylib.a 
+-lwinmm -lgdi32 -lole32 -lcomdlg32 -static
+[ERROR] command exited with exit code 1
